@@ -25,6 +25,7 @@ $accentcolor: #17936f
 
 $headerheight: 70px
 $footerheight: 50px
+$projectlistwidth: 900px
 
 $contentmargin: $headerheight + 20px
 
@@ -40,7 +41,8 @@ body
   width: 100%
   height: 100%
   min-width: 360px
-  margin: 0
+  max-width: $projectlistwidth
+  margin: 0 auto
   font-size: 16px
   background-color: $bgcolor
   color: $lightcolor
@@ -60,11 +62,15 @@ p
   font-size: 1em
   font-weight: 300
 
+#app
+  width: 100%
+
 #header
   display: block
   position: fixed
   top: 0px
   width: 100%
+  max-width: $projectlistwidth
   z-index: 101
   height: $headerheight
   pointer-events: none
@@ -138,8 +144,9 @@ p
   display: block
   position: fixed
   height: $footerheight
-  bottom: 20px
+  bottom: 0px
   width: 100%
+  max-width: $projectlistwidth
   pointer-events: none
   background: linear-gradient(to top, rgba($bgcolor, 1) 0%, rgba($bgcolor, 1) 50%, rgba($bgcolor, 0) 100%)
 
@@ -230,166 +237,205 @@ p
       svg
         cursor: pointer
 
-#player
+#project-list
   display: block
-  position: fixed
-  bottom: 0px
-  left: -20px
-  height: 20px
-  width: calc(100% + 100px + 20px)
-  overflow: hidden
-  background-color: $bgcolor
-  z-index: 100
-
-  #hackmask
-    display: block
-    position: absolute
-    width: 100%
-    height: 100%
-    background-color: $bgcolor
-    z-index: 102
-
-  #custompause
-    display: block
-    opacity: 1
-    position: fixed
-    bottom: 28px
-    left: 8px
-    width: 40px
-    height: 40px
-    background-color: $lightcolor
-    transition: opacity 0.5s
-    cursor: pointer
-    border-radius: 3px
-    z-index: 101
-
-    &.hidden
-      pointer-events: none
-      opacity: 0
-      width: 0px
-      height: 0px
-
-    svg
-      color: $bgcolor
-      font-size: 1.5em
-      position: relative
-      top: 50%
-      left: 50%
-      transform: translateY(-50%) translateX(-50%)
-
-#itunes
-  display: flex
-  position: absolute
   width: 100%
-  height: calc(100% - #{$contentmargin} - #{$footerheight})
-  min-height: 200px
-  margin-top: $contentmargin
-  flex-direction: row
-  @include media("<=medium")
-    flex-direction: column
-
-#simpleTunes
-  display: flex
-  position: absolute
-  width: 100%
+  max-width: $projectlistwidth
   min-width: 360px
   height: calc(100% - #{$contentmargin} - #{$footerheight})
+  margin: 0 auto
   margin-top: $contentmargin
-  flex-direction: row
-  justify-content: center
 
-#bigbox
-  display: block
-  position: relative
-  width: 100%
-  height: 100%
-  box-sizing: border-box
-  @include media("<=medium")
-    height: 50%
-
-  .bigimg
+  .projectListWrap
+    display: flex
     width: 100%
-    height: 100%
-    background-size: cover
-    background-position: center
+    justify-content: center
+    flex-wrap: wrap
 
-#music
-  display: flex
-  width: 100%
-  height: 100%
-  min-width: 400px
-  flex-basis: 400px
-  flex-direction: column
-  @include media("<=medium")
-    height: 50%
-
-  .soundBoxWrap
-    border-bottom: 1px solid #DDDDDD
-    &:last-child
-      border-bottom: none
-
-    .soundBox
-      display: flex
-      width: 100%
-      height: 50px
-      padding: 10px
-      box-sizing: border-box
-      flex-wrap: wrap
-
-      .soundLink
-        display: flex
-        width: 100%
-        height: 100%
-        max-width: 50px
-        max-height: 50px
-        box-sizing: border-box
-        align-items: center
-
-        a
-          display: block
-          width: 100%
-          height: 100%
-          text-decoration: none
-          color: $neutralcolor
-          cursor: pointer
-
-          svg
-            font-size: 1em
-            position: relative
-            top: 50%
-            left: 50%
-            transform: translateY(-50%) translateX(-50%)
-
-      .trackTitle
-        display: flex
-        height: 100%
-        flex-grow: 1
-        max-height: 50px
-        margin-left: 20px
-        cursor: pointer
-
-        span
-          display: flex
-          font-size: 1em
-          align-items: center
-          font-weight: 400
-
-    .trackDesc
+    .listItem
       display: block
-      width: 100%
-      height: 100%
-      max-height: 300px
-      overflow-y: hidden
+      position: relative
+      flex-basis: $projectlistwidth/3
 
-      p
-        margin: 0px
-        padding: 1em
+      &>div
+        display: block
+        width: 100%
+        box-sizing: border-box
 
-    img
-      display: inline-block
-      max-width: 100px
-      float: left
-      margin: 15px
+      .listItemImg
+        margin-bottom: -4px
+
+        img
+          width: 100%
+          height: auto
+
+      .listItemTitle
+        padding-bottom: 10px
+        position: absolute
+        bottom: 15px
+        left: 25px
+
+
+// #player
+//   display: block
+//   position: fixed
+//   bottom: 0px
+//   left: -20px
+//   height: 20px
+//   width: calc(100% + 100px + 20px)
+//   overflow: hidden
+//   background-color: $bgcolor
+//   z-index: 100
+//
+//   #hackmask
+//     display: block
+//     position: absolute
+//     width: 100%
+//     height: 100%
+//     background-color: $bgcolor
+//     z-index: 102
+//
+//   #custompause
+//     display: block
+//     opacity: 1
+//     position: fixed
+//     bottom: 28px
+//     left: 8px
+//     width: 40px
+//     height: 40px
+//     background-color: $lightcolor
+//     transition: opacity 0.5s
+//     cursor: pointer
+//     border-radius: 3px
+//     z-index: 101
+//
+//     &.hidden
+//       pointer-events: none
+//       opacity: 0
+//       width: 0px
+//       height: 0px
+//
+//     svg
+//       color: $bgcolor
+//       font-size: 1.5em
+//       position: relative
+//       top: 50%
+//       left: 50%
+//       transform: translateY(-50%) translateX(-50%)
+//
+// #itunes
+//   display: flex
+//   position: absolute
+//   width: 100%
+//   height: calc(100% - #{$contentmargin} - #{$footerheight})
+//   min-height: 200px
+//   margin-top: $contentmargin
+//   flex-direction: row
+//   @include media("<=medium")
+//     flex-direction: column
+//
+// #simpleTunes
+//   display: flex
+//   position: absolute
+//   width: 100%
+//   min-width: 360px
+//   height: calc(100% - #{$contentmargin} - #{$footerheight})
+//   margin-top: $contentmargin
+//   flex-direction: row
+//   justify-content: center
+//
+// #bigbox
+//   display: block
+//   position: relative
+//   width: 100%
+//   height: 100%
+//   box-sizing: border-box
+//   @include media("<=medium")
+//     height: 50%
+//
+//   .bigimg
+//     width: 100%
+//     height: 100%
+//     background-size: cover
+//     background-position: center
+//
+// #music
+//   display: flex
+//   width: 100%
+//   height: 100%
+//   min-width: 400px
+//   flex-basis: 400px
+//   flex-direction: column
+//   @include media("<=medium")
+//     height: 50%
+//
+//   .soundBoxWrap
+//     border-bottom: 1px solid #DDDDDD
+//     &:last-child
+//       border-bottom: none
+//
+//     .soundBox
+//       display: flex
+//       width: 100%
+//       height: 50px
+//       padding: 10px
+//       box-sizing: border-box
+//       flex-wrap: wrap
+//
+//       .soundLink
+//         display: flex
+//         width: 100%
+//         height: 100%
+//         max-width: 50px
+//         max-height: 50px
+//         box-sizing: border-box
+//         align-items: center
+//
+//         a
+//           display: block
+//           width: 100%
+//           height: 100%
+//           text-decoration: none
+//           color: $neutralcolor
+//           cursor: pointer
+//
+//           svg
+//             font-size: 1em
+//             position: relative
+//             top: 50%
+//             left: 50%
+//             transform: translateY(-50%) translateX(-50%)
+//
+//       .trackTitle
+//         display: flex
+//         height: 100%
+//         flex-grow: 1
+//         max-height: 50px
+//         margin-left: 20px
+//         cursor: pointer
+//
+//         span
+//           display: flex
+//           font-size: 1em
+//           align-items: center
+//           font-weight: 400
+//
+//     .trackDesc
+//       display: block
+//       width: 100%
+//       height: 100%
+//       max-height: 300px
+//       overflow-y: hidden
+//
+//       p
+//         margin: 0px
+//         padding: 1em
+//
+//     img
+//       display: inline-block
+//       max-width: 100px
+//       float: left
+//       margin: 15px
 
 /* VUE TRANSITIONS */
 
