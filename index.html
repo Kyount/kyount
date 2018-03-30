@@ -11,9 +11,6 @@
   <link rel="stylesheet" href="/src/style.min.css">
   <!-- VUEJS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.15/vue.js"></script>
-  <!-- TINY SLIDER -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.6.0/min/tiny-slider.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.6.0/tiny-slider.css" />
   <!-- VELOCITY -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.2/velocity.min.js"></script>
 </head>
@@ -70,7 +67,7 @@
         <div class="projectListWrap">
           <div class="listItem" v-for="(project, index) in projects" @click="showProject(project)">
             <div class="listItemImg">
-              <img :src="project.images[0]" alt="">
+              <img :src="project.thumbnail" alt="">
             </div>
             <div class="listItemTitle">
               <div class="md">
@@ -85,11 +82,15 @@
     <transition name="projectslide">
       <div id="project-item" v-show="isProjectShowing == true">
         <div class="projectItemWrap">
-          <div class="projectItem">
-            <div class="projectItemImagesWrap">
-              <div class="projectItemImage" v-for="(images, index) in projects[activeProject].images">
-                <img :src="projects[activeProject].images[index]" alt="">
-              </div>
+          <div class="projectTitle" @click="hideProject()">
+            <h1>{{projects[activeProject].title}}</h1>
+          </div>
+          <div class="projectDescription">
+            <p>{{projects[activeProject].description}}</p>
+          </div>
+          <div class="projectItemImagesWrap">
+            <div class="projectItemImage" v-for="(images, index) in projects[activeProject].images">
+              <img :src="projects[activeProject].images[index]"></div>
             </div>
           </div>
         </div>

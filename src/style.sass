@@ -29,7 +29,7 @@ $projectlistwidth: 900px
 
 $contentmargin: $headerheight + 20px
 
-$breakpoints: (small: 360px, medium: 768px, large: 1024px)
+$breakpoints: (small: 480px, medium: 768px, large: 1024px)
 
 html
   width: 100%
@@ -149,7 +149,8 @@ p
   width: 100%
   max-width: $projectlistwidth
   pointer-events: none
-  background: linear-gradient(to top, rgba($bgcolor, 1) 0%, rgba($bgcolor, 1) 50%, rgba($bgcolor, 0) 100%)
+  // background: linear-gradient(to top, rgba($bgcolor, 1) 0%, rgba($bgcolor, 1) 50%, rgba($bgcolor, 0) 100%)
+  background-color: $bgcolor
 
 
 .social
@@ -244,9 +245,9 @@ p
   width: 100%
   max-width: $projectlistwidth
   min-width: 360px
-  height: calc(100% - #{$contentmargin} - #{$footerheight})
   margin: 0 auto
   margin-top: $contentmargin
+  margin-bottom: $footerheight
 
 #project-list
   @extend %project-shared
@@ -282,6 +283,30 @@ p
 
 #project-item
   @extend %project-shared
+
+  .projectItemWrap
+    width: 100%
+    padding: 0px 15px
+    box-sizing: border-box
+
+    .projectItemImagesWrap
+      display: flex
+      flex-wrap: wrap
+
+      .projectItemImage
+        flex-basis: 50%
+        margin-bottom: -4px
+        padding: 3px
+        box-sizing: border-box
+
+        @include media("<medium")
+          flex-basis: 100%
+
+        img
+          width: 100%
+          height: auto
+
+
 
 
 // #player
