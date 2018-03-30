@@ -3,11 +3,18 @@
 <head>
   <title>Cubeshark Music and Audio Production</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- FONT AWESOME -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+  <!-- CUSTOM STYLES -->
   <link rel="stylesheet" href="/src/style.min.css">
+  <!-- VUEJS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.15/vue.js"></script>
+  <!-- TINY SLIDER -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.6.0/min/tiny-slider.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.6.0/tiny-slider.css" />
+  <!-- VELOCITY -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.2/velocity.min.js"></script>
 </head>
 <body>
@@ -58,20 +65,36 @@
       </div>
     </transition>
 
-    <div id="project-list">
-      <div class="projectListWrap">
-        <div class="listItem" v-for="project in projects">
-          <div class="listItemImg">
-            <img :src="project.images[0]" alt="">
-          </div>
-          <div class="listItemTitle">
-            <div class="md">
-              <h2>{{project.title}}</h2>
+    <transition name="listslide">
+      <div id="project-list" v-show="isProjectShowing == false">
+        <div class="projectListWrap">
+          <div class="listItem" v-for="(project, index) in projects" @click="showProject(project)">
+            <div class="listItemImg">
+              <img :src="project.images[0]" alt="">
+            </div>
+            <div class="listItemTitle">
+              <div class="md">
+                <h2>{{project.title}}</h2>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </transition>
+
+    <transition name="projectslide">
+      <div id="project-item" v-show="isProjectShowing == true">
+        <div class="projectItemWrap">
+          <div class="projectItem">
+            <div class="projectItemImagesWrap">
+              <div class="projectItemImage" v-for="(images, index) in projects[activeProject].images">
+                <img :src="projects[activeProject].images[index]" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </transition>
 
     <div id="footer">
       <div class="social">
