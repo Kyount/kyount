@@ -2,7 +2,7 @@ var projectObj = [
   {
     id: 0,
     selected: false,
-    title: "PROJECT 1",
+    title: "project 1",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec elit quam. Sed euismod lorem dui. Vestibulum ultrices accumsan scelerisque. Morbi sit amet odio libero. Fusce scelerisque elit nulla, sed fermentum libero lacinia at. Nam ultricies enim vel ante iaculis laoreet eu dignissim neque. Aliquam id metus dapibus, pharetra nisi id, tincidunt est. Nam magna ex, sagittis eu lorem quis, fringilla convallis dolor. Integer id nibh eros. Etiam vehicula, arcu et lacinia fermentum, dui est pellentesque nisl, vitae hendrerit lacus mauris sit amet neque. Quisque ultrices sodales enim. Duis eu sapien mollis, dapibus arcu viverra, consequat nisl. Nam lectus lectus, tempus vitae neque ut, pharetra blandit dui.",
     thumbnail: 'https://picsum.photos/600/400/?random',
     images: ['https://picsum.photos/600/400/?random'],
@@ -96,5 +96,7 @@ var vm = new Vue({
     document.getElementById('fadeIn')
     .velocity({opacity:0}, {duration: 1000})
     .velocity({display:'none'}, {duration: 0});
+
+    import('/src/bugs.js');
   }
 });
