@@ -35,8 +35,8 @@
     </div>
 
     <transition name="infofade">
-      <div id="about" class="infoContainer" v-show="aboutBox == true" v-on:click="hideAbout">
-        <div class="infoBox" v-on:click.stop>
+      <div id="about" class="infoContainer" v-show="aboutBox == true">
+        <div class="infoBox">
           <div class="closeInfo" v-on:click="hideAbout"><i class="fas fa-window-close"></i></div>
           <div class="md">
             <h1><span><img style="height: 50px; padding: 0px 15px" src="/img/CSOutline_invert.svg" alt=""></span>CUBESHARK MUSIC & SOUND DESIGN</h1>
@@ -49,8 +49,8 @@
     </transition>
 
     <transition name="infofade">
-      <div id="contact" class="infoContainer" v-show="contactBox == true" v-on:click="hideContact">
-        <div class="infoBox" v-on:click.stop>
+      <div id="contact" class="infoContainer" v-show="contactBox == true">
+        <div class="infoBox">
           <div class="closeInfo" v-on:click="hideContact"><i class="fas fa-window-close"></i></div>
           <div class="md">
             <h1>CONTACT INFORMATION</h1>
@@ -67,12 +67,10 @@
         <div class="projectListWrap">
           <div class="listItem" v-for="(project, index) in projects" @click="showProject(project)">
             <div class="listItemImg">
-              <img :src="project.thumbnail" alt="">
-            </div>
-            <div class="listItemTitle">
-              <div class="md">
+              <div class="listItemTitle">
                 <h2>{{project.title}}</h2>
               </div>
+              <img :src="project.thumbnail" alt="">
             </div>
           </div>
         </div>
@@ -82,7 +80,7 @@
     <transition name="projectslide">
       <div id="project-item" v-show="isProjectShowing == true">
         <div class="projectItemWrap">
-          <div class="projectTitle" @click="hideProject()">
+          <div class="projectTitle">
             <h1>{{projects[activeProject].title}}</h1>
           </div>
           <div class="projectDescription">
@@ -90,7 +88,7 @@
           </div>
           <div class="projectItemImagesWrap">
             <div class="projectItemImage" v-for="(images, index) in projects[activeProject].images">
-              <img :src="projects[activeProject].images[index]"></div>
+              <img :src="projects[activeProject].images[index]">
             </div>
           </div>
         </div>
@@ -98,6 +96,11 @@
     </transition>
 
     <div id="footer">
+      <transition name="infofade">
+        <div id="backtolist" @click="hideProject()" v-if="isProjectShowing == true">
+          <span><i class="fas fa-arrow-left"></i>back to list</span>
+        </div>
+      </transition>
       <div class="social">
         <div class="s_item">
           <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -109,6 +112,7 @@
     </div>
 
   </div>
+
   <script src="/src/script.js"></script>
 </body>
 </html>

@@ -63,6 +63,13 @@ p
   font-size: 1em
   font-weight: 300
 
+img
+  opacity: 1
+  transition: opacity 0.3s
+
+img[data-src]
+  opacity: 0
+
 #app
   width: 100%
 
@@ -106,12 +113,16 @@ p
   .title
     @extend %title-shared
     font-size: 1.5rem
-    font-weight: 400
+    font-weight: 500
 
   .subtitle
     @extend %title-shared
     font-size: 0.8rem
     font-weight: 300
+    line-height: 1rem
+    @include media("<small")
+      font-size: 0.6rem
+      max-width: 200px
 
 .navigation
   display: flex
@@ -146,12 +157,32 @@ p
   position: fixed
   height: $footerheight
   bottom: 0px
+  left: 0px
   width: 100%
-  max-width: $projectlistwidth
-  pointer-events: none
   // background: linear-gradient(to top, rgba($bgcolor, 1) 0%, rgba($bgcolor, 1) 50%, rgba($bgcolor, 0) 100%)
   background-color: $bgcolor
 
+#backtolist
+  position: absolute
+  display: flex
+  left: 0px
+  bottom: 0px
+  // height: 100%
+  padding-bottom: $footerheight/4
+  padding-left: 20px
+  z-index: 1000
+  cursor: pointer
+
+  &>*
+    background-color: $lightcolor
+    color: $bgcolor
+    padding: 5px 10px
+    border-radius: 10px
+    display: flex
+    align-items: center
+
+  svg
+    padding-right: 7px
 
 .social
   display: flex
@@ -162,6 +193,9 @@ p
   justify-content: center
   box-sizing: border-box
   font-size: 1.1rem
+
+  @include media("<small")
+    justify-content: flex-end
 
   .s_item
     display: flex
@@ -197,24 +231,24 @@ p
   margin: 0 auto
   padding: 0px 20px
   box-sizing: border-box
-  // background-color: transparentize($lightcolor, 0.5)
+  background-color: transparentize($bgcolor, 0.4)
 
   .infoBox
     display: block
     position: relative
     width: 100%
-    max-width: 600px
-    height: calc(80% - #{$contentmargin} - #{$footerheight} - 40px)
+    max-width: 800px
+    height: calc(90% - #{$contentmargin} - #{$footerheight} - 40px)
     min-height: 400px
     margin-top: $contentmargin + 20px
     margin-bottom: $footerheight + 20px
     margin-left: auto
     margin-right: auto
-    background-color: $lightcolor
-    color: $bgcolor
+    background-color: $bgcolor
+    color: $lightcolor
     border: 2px solid $neutralcolor
     box-sizing: border-box
-    box-shadow: 40px 40px 0px 0px rgba($lightcolor, 0.2)
+    box-shadow: 40px 40px 0px 0px rgba($bgcolor, 0.2)
 
     .md
       display: block
@@ -262,6 +296,7 @@ p
       display: block
       position: relative
       flex-basis: $projectlistwidth/3
+      cursor: pointer
 
       &>div
         display: block
@@ -270,16 +305,26 @@ p
 
       .listItemImg
         margin-bottom: -4px
+        padding: 10px
+        transition: all 0.1s ease-in-out
 
         img
+          position: relative
           width: 100%
           height: auto
+          box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.50)
 
-      .listItemTitle
-        padding-bottom: 10px
-        position: absolute
-        bottom: 15px
-        left: 25px
+        .listItemTitle
+          padding-bottom: 10px
+          position: absolute
+          top: 10px
+          left: 10px
+          z-index: 10
+          padding-left: 5px
+          padding-top: 5px
+
+          h2
+            text-shadow: 2px 2px $bgcolor
 
 #project-item
   @extend %project-shared
@@ -289,6 +334,10 @@ p
     padding: 0px 15px
     box-sizing: border-box
 
+    .projectTitle
+
+      h1
+
     .projectItemImagesWrap
       display: flex
       flex-wrap: wrap
@@ -296,7 +345,7 @@ p
       .projectItemImage
         flex-basis: 50%
         margin-bottom: -4px
-        padding: 3px
+        padding: 10px
         box-sizing: border-box
 
         @include media("<medium")
@@ -305,6 +354,13 @@ p
         img
           width: 100%
           height: auto
+          box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.50)
+
+
+
+
+
+
 
 
 
@@ -479,12 +535,17 @@ p
 .infofade-enter, .infofade-leave-to
   opacity: 0
 
-//descslide
-.descslide-enter-active, .descslide-leave-active
-  transition: all 0.5s ease-in-out
+.aboutslide-enter-active, .aboutslide-leave-active
+  transition: transform 0.7s ease-in-out
 
-.descslide-enter, .descslide-leave-to
-  max-height: 0px !important
+.aboutslide-enter, .aboutslide-leave-to
+  transform: translateY(100vh)
+
+.contactslide-enter-active, .contactslide-leave-active
+  transition: transform 0.7s ease-in-out
+
+.contactslide-enter, .contactslide-leave-to
+  transform: translateY(-100vh)
 
 //listslide
 .listslide-enter-active, .listslide-leave-active
