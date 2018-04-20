@@ -81,14 +81,24 @@ img
 img[data-src]
   opacity: 0
 
-canvas
-  position: fixed
-  width: 100%
-  height: 100%
-  top: 0px
-  left: 0px
-  pointer-events: none
-  z-index: -1
+#canvashook
+
+  canvas
+    position: fixed
+    // width: 100%
+    height: 100%
+    top: 0px
+    left: 0px
+    pointer-events: none
+    overflow-x: hidden
+    transform: translateX(0%)
+    transition: transform 0.7s ease-in-out
+    z-index: -1
+
+  &.move
+
+    canvas
+      transform: translateX(-15%)
 
 #app
   width: 100%
@@ -412,5 +422,11 @@ canvas
 .projectslide-enter, .projectslide-leave-to
   transform: translateX(100vw)
 
+// //canvasslide
+// .canvasslide-enter-active, .canvasslide-leave-active
+//   transition: transform 0.7s ease-in-out
+//
+// .canvasslide-enter, .canvasslide-leave-to
+//   transform: translateX(50%)
 
 /*********/

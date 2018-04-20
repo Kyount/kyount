@@ -2,7 +2,7 @@
 var canvas = document.createElement("canvas");
 
 // attach element to DOM
-document.getElementsByTagName("body")[0].appendChild(canvas);
+document.getElementById("canvashook").appendChild(canvas);
 
 // get the canvas context (this is the part we draw to)
 var ctx = canvas.getContext("2d");
@@ -11,7 +11,7 @@ var bugCounter = 0;
 
 function setup() {
   // setup the canvas size to match the window
-  canvas.width = window.innerWidth;
+  canvas.width = window.innerWidth * 1.5;
   canvas.height = window.innerHeight;
 
   // set the 0,0 point to the middle of the canvas
@@ -21,7 +21,7 @@ function setup() {
 window.setInterval(function() {
   bugs.push(new Bug(randomRange(-canvas.width/2,canvas.width/2), randomRange(-canvas.height/2, canvas.height/2)));
   // bugs.push(new Bug(0,0));
-  if (bugs.length > 5) {
+  if (bugs.length > 10) {
     // bugs.splice(0,1);
     bugs[bugCounter].isAlive = false;
     bugCounter++;
@@ -59,7 +59,7 @@ function randomRange(max, min) {
 }
 
 function Bug(x, y) {
-  this.globalSpeed = 0.7;
+  this.globalSpeed = 0.3;
 
   this.x = x;
   this.y = y;
