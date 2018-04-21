@@ -27,13 +27,11 @@
         <div class="subtitle"><span>WEB DEVELOPMENT AND DESIGN</span></div>
       </div>
       <div class="navigation" :class="{mainscreen: !isProjectShowing}">
-        <div id="project-list">
-          <div class="listItem"
-              v-for="(project, index) in projects"
-              @click="showProject(project)"
-              :style="'transition-delay:' +  (0.05 * index) + 's'">
-            <span>{{project.title}}</span>
-          </div>
+        <div class="listItem"
+            v-for="(project, index) in projects"
+            @click="showProject(project)"
+            :style="'transition-delay:' +  (0.05 * index) + 's'">
+          <span>{{project.title}}</span>
         </div>
       </div>
     </div>

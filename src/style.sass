@@ -165,29 +165,43 @@ img
 .navigation
   display: flex
   position: absolute
+  width: 250px
   right: 0%
   top: 0%
-  justify-content: flex-end
+  flex-wrap: wrap-reverse
+  justify-content: center
+  transition: all 0.7s ease-in-out
 
-#project-list
+  &.mainscreen
+    right: 50%
+    transform: translateX(50%)
+
+    .listItem
+      top: 50vh !important
+
+// #project-list
+//   display: flex
+//   width: 250px
+//   flex-wrap: wrap
+//   justify-content: center
+
+.listItem
   display: flex
-  width: $projectlistwidth
-  flex-wrap: wrap
+  position: relative
+  align-items: center
+  margin: 5px
+  top: 0vh
+  transition: all 0.7s ease-in-out
 
-  .listItem
-    display: flex
-    align-items: center
-    justify-content: flex-end
-
-    span
-      color: $bgcolor
-      background-color: $neutralcolor
-      font-size: 0.8rem
-      font-weight: 400
-      letter-spacing: 0.2em
-      cursor: pointer
-      padding: 0.2em
-      text-transform: lowercase
+  span
+    color: $bgcolor
+    background-color: $neutralcolor
+    font-size: 0.8rem
+    font-weight: 400
+    letter-spacing: 0.2em
+    cursor: pointer
+    padding: 0.2em
+    text-transform: lowercase
 
 #footer
   display: block
