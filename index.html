@@ -23,8 +23,8 @@
 
     <div id="header">
       <div class="logotitle" :class="{mainscreen: !isProjectShowing}">
-        <div class="title">KYLE YOUNT</div>
-        <div class="subtitle">WEB DEVELOPMENT AND DESIGN</div>
+        <div class="title"><span>KYLE YOUNT</span></div>
+        <div class="subtitle"><span>WEB DEVELOPMENT AND DESIGN</span></div>
       </div>
       <div class="navigation" :class="{mainscreen: !isProjectShowing}">
         <div id="project-list">
@@ -42,42 +42,42 @@
       <div id="project-item" v-show="isProjectShowing == true">
 
         <!-- PROJECT 1 -->
-        <div class="projectItemWrap" v-show="activeProject == 1">
+        <div class="projectItemWrap" v-show="activeProject == 0">
           <div class="projectTitle">
             <h1>{{projects[activeProject].title}}</h1>
           </div>
         </div>
 
         <!-- PROJECT 2 -->
-        <div class="projectItemWrap" v-show="activeProject == 2">
+        <div class="projectItemWrap" v-show="activeProject == 1">
           <div class="projectTitle">
             <h1>{{projects[activeProject].title}}</h1>
           </div>
         </div>
 
         <!-- PROJECT 3 -->
-        <div class="projectItemWrap" v-show="activeProject == 3">
+        <div class="projectItemWrap" v-show="activeProject == 2">
           <div class="projectTitle">
             <h1>{{projects[activeProject].title}}</h1>
           </div>
         </div>
 
         <!-- PROJECT 4 -->
-        <div class="projectItemWrap" v-show="activeProject == 4">
+        <div class="projectItemWrap" v-show="activeProject == 3">
           <div class="projectTitle">
             <h1>{{projects[activeProject].title}}</h1>
           </div>
         </div>
 
         <!-- PROJECT 5 -->
-        <div class="projectItemWrap" v-show="activeProject == 5">
+        <div class="projectItemWrap" v-show="activeProject == 4">
           <div class="projectTitle">
             <h1>{{projects[activeProject].title}}</h1>
           </div>
         </div>
 
         <!-- PROJECT 6 -->
-        <div class="projectItemWrap" v-show="activeProject == 6">
+        <div class="projectItemWrap" v-show="activeProject == 5">
           <div class="projectTitle">
             <h1>{{projects[activeProject].title}}</h1>
           </div>

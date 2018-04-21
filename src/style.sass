@@ -36,7 +36,7 @@ $bgcolor: mix(#252525, #0e4b60, 80)
 
 $headerheight: 70px
 $footerheight: 50px
-$projectlistwidth: 900px
+$projectlistwidth: 300px
 
 $contentmargin: $headerheight + 20px
 
@@ -52,7 +52,7 @@ body
   width: 100%
   height: 100%
   min-width: 360px
-  max-width: $projectlistwidth
+  max-width: 900px
   margin: 0 auto
   font-size: 16px
   // background-color: $bgcolor
@@ -104,7 +104,7 @@ img
   position: fixed
   top: 0px
   width: 100%
-  max-width: $projectlistwidth
+  max-width: 900px
   z-index: 101
   height: $headerheight
   background-color: $bgcolor
@@ -114,25 +114,38 @@ img
   flex-direction: column
   position: absolute
   height: 100%
+  width: 100%
   justify-content: center
   top: 0%
   left: 0%
-  transform: translate(0% 0%)
-  transition: all 1s ease-in-out
 
   &.mainscreen
-    transform: translate(-50%, -50%)
-    top: 40vh
-    left: 50%
+
+    .title, .subtitle
+      // transform: translate(-50%, -50%)
+      top: 30vh
+      left: 50%
+
+      span
+        transform: translateX(-50%)
 
   %title-shared
     display: flex
+    position: relative
+    top: 0%
+    left: 0%
+    transform: translateX(0%)
     justify-content: flex-start
     color: $lightcolor
     letter-spacing: 0.2em
     margin: 5px 0px
     // padding-left: 15px
     align-items: center
+    transition: all 1s ease-in-out
+
+    span
+      transform: translateX(0%)
+      transition: all 0.7s ease-in-out
 
   .title
     @extend %title-shared
@@ -144,15 +157,10 @@ img
     font-size: 0.8rem
     font-weight: 300
     line-height: 1rem
+    transition-delay: 0.05s
     @include media("<small")
       font-size: 0.6rem
       max-width: 200px
-
-  &.mainscreen
-    .title
-      @extend %title-shared
-
-    .subtitle
 
 .navigation
   display: flex
@@ -163,10 +171,11 @@ img
 
 #project-list
   display: flex
+  width: $projectlistwidth
+  flex-wrap: wrap
 
   .listItem
     display: flex
-    height: 100%
     align-items: center
     justify-content: flex-end
 
@@ -187,7 +196,6 @@ img
   bottom: 0px
   left: 0px
   width: 100%
-  // background: linear-gradient(to top, rgba($bgcolor, 1) 0%, rgba($bgcolor, 1) 50%, rgba($bgcolor, 0) 100%)
   background-color: $bgcolor
 
 #backtolist
@@ -252,7 +260,7 @@ img
   display: block
   position: absolute
   width: 100%
-  max-width: $projectlistwidth
+  max-width: 900px
   min-width: 360px
   margin: 0 auto
   margin-top: $contentmargin
