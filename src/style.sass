@@ -319,15 +319,15 @@ img
   @extend %project-shared
 
   .projectListWrap
-    display: flex
+    display: block
     width: 100%
     justify-content: center
     flex-wrap: wrap
 
     .listItem
       display: block
-      position: relative
-      flex-basis: $projectlistwidth/3
+      position: absolute
+      // flex-basis: $projectlistwidth/3
       cursor: pointer
       // transform: translateX(0vw)
       // transition: transform 0.7s ease-in-out
@@ -340,8 +340,12 @@ img
       .listItemImg
         margin-bottom: -4px
         padding: 10px
-        transition: all 0.1s ease-in-out
+        width: 200px
         height: 200px
+        background-size: cover
+        background-position: center
+        transition: all 0.1s ease-in-out
+        // height: 200px
         // animation: imgFade 0.5s ease-in
         // animation-fill-mode: forwards
         // opacity: 0
