@@ -22,83 +22,67 @@
     <div id="fadeIn"></div>
 
     <div id="header">
-      <div class="logotitle">
+      <div class="logotitle" :class="{mainscreen: !isProjectShowing}">
         <div class="title">KYLE YOUNT</div>
-        <div class="subtitle">FRONT-END WEB DEVELOPMENT AND DESIGN</div>
+        <div class="subtitle">WEB DEVELOPMENT AND DESIGN</div>
       </div>
-      <div class="navigation">
-        <div class="h_item">
-          <a class="nav_link" @click="showAbout">about</a>
-        </div>
-        <div class="h_item">
-          <a class="nav_link" @click="showContact">contact</a>
+      <div class="navigation" :class="{mainscreen: !isProjectShowing}">
+        <div id="project-list">
+          <div class="listItem"
+              v-for="(project, index) in projects"
+              @click="showProject(project)"
+              :style="'transition-delay:' +  (0.05 * index) + 's'">
+            <span>{{project.title}}</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <transition name="infofade">
-      <div id="about" class="infoContainer" v-show="aboutBox == true">
-        <div class="infoBox">
-          <div class="closeInfo" v-on:click="hideAbout"><i class="fas fa-window-close"></i></div>
-          <div class="md">
-            <h1><span><img style="height: 50px; padding: 0px 15px" src="/img/CSOutline_invert.svg" alt=""></span>CUBESHARK MUSIC & SOUND DESIGN</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit nulla et ante sagittis imperdiet. Suspendisse convallis dignissim turpis, a auctor justo ornare sed. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris rhoncus laoreet neque, fermentum efficitur nisl fringilla vel. Morbi vitae varius metus. Praesent in tempor orci. Praesent sit amet lorem justo. Etiam nec posuere diam. In porttitor cursus luctus.</p>
-            <p>Nunc tempus, mauris nec ultrices vestibulum, lectus mi commodo sapien, in scelerisque ipsum nibh ac turpis. Fusce sagittis massa quis lobortis convallis. Maecenas imperdiet risus condimentum aliquam faucibus. Ut in ipsum nec ipsum cursus rhoncus id sit amet magna. Mauris sit amet lacinia nulla. Donec eu tortor nec risus hendrerit fermentum non vel magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet faucibus arcu, eu egestas magna. Duis a mauris gravida, aliquam enim dictum, mattis diam. Mauris facilisis nisl sit amet risus dictum fringilla. Nulla volutpat quam libero, et dignissim lorem commodo et. Mauris eu rhoncus nisi. Nam imperdiet, ligula eget congue aliquet, ex nulla feugiat nunc, et dignissim nulla mi a magna.</p>
-            <p>Mauris at sapien nibh. Ut in arcu consectetur, tincidunt tortor at, condimentum lectus. Nullam pellentesque, neque sed laoreet tincidunt, lectus ligula tincidunt turpis, et scelerisque lectus dui molestie eros. Etiam feugiat elit sed rutrum dignissim. Nunc posuere massa vitae pretium vestibulum. Praesent aliquam eget dolor vulputate egestas. Donec urna dolor, semper id sagittis ac, dapibus eu mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eros enim, viverra at pharetra eu, bibendum non nisl.</p>
-          </div>
-        </div>
-      </div>
-    </transition>
-
-    <transition name="infofade">
-      <div id="contact" class="infoContainer" v-show="contactBox == true">
-        <div class="infoBox">
-          <div class="closeInfo" v-on:click="hideContact"><i class="fas fa-window-close"></i></div>
-          <div class="md">
-            <h1>CONTACT INFORMATION</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit nulla et ante sagittis imperdiet. Suspendisse convallis dignissim turpis, a auctor justo ornare sed. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris rhoncus laoreet neque, fermentum efficitur nisl fringilla vel. Morbi vitae varius metus. Praesent in tempor orci. Praesent sit amet lorem justo. Etiam nec posuere diam. In porttitor cursus luctus.</p>
-            <p>Nunc tempus, mauris nec ultrices vestibulum, lectus mi commodo sapien, in scelerisque ipsum nibh ac turpis. Fusce sagittis massa quis lobortis convallis. Maecenas imperdiet risus condimentum aliquam faucibus. Ut in ipsum nec ipsum cursus rhoncus id sit amet magna. Mauris sit amet lacinia nulla. Donec eu tortor nec risus hendrerit fermentum non vel magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet faucibus arcu, eu egestas magna. Duis a mauris gravida, aliquam enim dictum, mattis diam. Mauris facilisis nisl sit amet risus dictum fringilla. Nulla volutpat quam libero, et dignissim lorem commodo et. Mauris eu rhoncus nisi. Nam imperdiet, ligula eget congue aliquet, ex nulla feugiat nunc, et dignissim nulla mi a magna.</p>
-            <p>Mauris at sapien nibh. Ut in arcu consectetur, tincidunt tortor at, condimentum lectus. Nullam pellentesque, neque sed laoreet tincidunt, lectus ligula tincidunt turpis, et scelerisque lectus dui molestie eros. Etiam feugiat elit sed rutrum dignissim. Nunc posuere massa vitae pretium vestibulum. Praesent aliquam eget dolor vulputate egestas. Donec urna dolor, semper id sagittis ac, dapibus eu mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eros enim, viverra at pharetra eu, bibendum non nisl.</p>
-          </div>
-        </div>
-      </div>
-    </transition>
-
-    <!-- <transition name="listslide"> -->
-      <div id="project-list">
-        <!-- <div class="projectListWrap"> -->
-          <transition-group tag="div" class="projectListWrap" name="listslide">
-            <div class="listItem" v-for="(project, index) in projects" @click="showProject(project)" :key="project.id" :style="'transition-delay:' +  (0.05 * index) + 's'" v-show="isProjectShowing == false">
-              <div class="listItemImg"
-              :style="'animation-delay:' + (0.2 * index) + 's;
-               background-image: url(' + project.thumbnail + ');
-               '">
-                <!-- <div class="listItemTitle">
-                  <h2>{{project.title}}</h2>
-                </div> -->
-                <!-- <img :src="project.thumbnail" alt=""> -->
-              </div>
-            </div>
-          </transition-group>
-        <!-- </div> -->
-      </div>
-    <!-- </transition> -->
-
     <transition name="projectslide">
       <div id="project-item" v-show="isProjectShowing == true">
-        <div class="projectItemWrap">
+
+        <!-- PROJECT 1 -->
+        <div class="projectItemWrap" v-show="activeProject == 1">
           <div class="projectTitle">
             <h1>{{projects[activeProject].title}}</h1>
           </div>
-          <div class="projectDescription">
-            <p>{{projects[activeProject].description}}</p>
-          </div>
-          <div class="projectItemImagesWrap">
-            <div class="projectItemImage" v-for="(images, index) in projects[activeProject].images">
-              <img :src="projects[activeProject].images[index]">
-            </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="projectItemWrap" v-show="activeProject == 2">
+          <div class="projectTitle">
+            <h1>{{projects[activeProject].title}}</h1>
           </div>
         </div>
+
+        <!-- PROJECT 3 -->
+        <div class="projectItemWrap" v-show="activeProject == 3">
+          <div class="projectTitle">
+            <h1>{{projects[activeProject].title}}</h1>
+          </div>
+        </div>
+
+        <!-- PROJECT 4 -->
+        <div class="projectItemWrap" v-show="activeProject == 4">
+          <div class="projectTitle">
+            <h1>{{projects[activeProject].title}}</h1>
+          </div>
+        </div>
+
+        <!-- PROJECT 5 -->
+        <div class="projectItemWrap" v-show="activeProject == 5">
+          <div class="projectTitle">
+            <h1>{{projects[activeProject].title}}</h1>
+          </div>
+        </div>
+
+        <!-- PROJECT 6 -->
+        <div class="projectItemWrap" v-show="activeProject == 6">
+          <div class="projectTitle">
+            <h1>{{projects[activeProject].title}}</h1>
+          </div>
+        </div>
+
       </div>
     </transition>
 

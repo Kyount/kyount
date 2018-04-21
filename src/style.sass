@@ -107,7 +107,6 @@ img
   max-width: $projectlistwidth
   z-index: 101
   height: $headerheight
-  pointer-events: none
   background-color: $bgcolor
 
 .logotitle
@@ -115,25 +114,24 @@ img
   flex-direction: column
   position: absolute
   height: 100%
-  width: 100%
   justify-content: center
+  top: 0%
+  left: 0%
+  transform: translate(0% 0%)
+  transition: all 1s ease-in-out
 
-  .logo
-    display: flex
-    align-items: center
-    margin: 0px 0.8em
-
-    img
-      height: $headerheight/2
-      width: auto
-      align-items: center
+  &.mainscreen
+    transform: translate(-50%, -50%)
+    top: 40vh
+    left: 50%
 
   %title-shared
     display: flex
+    justify-content: flex-start
     color: $lightcolor
     letter-spacing: 0.2em
     margin: 5px 0px
-    padding-left: 15px
+    // padding-left: 15px
     align-items: center
 
   .title
@@ -150,33 +148,37 @@ img
       font-size: 0.6rem
       max-width: 200px
 
+  &.mainscreen
+    .title
+      @extend %title-shared
+
+    .subtitle
+
 .navigation
   display: flex
   position: absolute
-  right: 0
-  height: 100%
-  width: 200px
+  right: 0%
+  top: 0%
   justify-content: flex-end
-  flex-direction: column
 
-  .h_item
+#project-list
+  display: flex
+
+  .listItem
     display: flex
     height: 100%
     align-items: center
     justify-content: flex-end
 
-    a.nav_link
-      pointer-events: all
-      text-decoration: none
+    span
       color: $bgcolor
       background-color: $neutralcolor
       font-size: 0.8rem
       font-weight: 400
       letter-spacing: 0.2em
-      // transform: scaleY(0.9)
       cursor: pointer
       padding: 0.2em
-
+      text-transform: lowercase
 
 #footer
   display: block
@@ -246,66 +248,7 @@ img
   background-color: $bgcolor
   pointer-events: none
 
-.infoContainer
-  display: block
-  position: fixed
-  left: 0px
-  top: 0px
-  width: 100%
-  height: 100%
-  z-index: 100
-  margin: 0 auto
-  padding: 0px 20px
-  box-sizing: border-box
-  background-color: transparentize($bgcolor, 0.4)
-
-  .infoBox
-    display: block
-    position: relative
-    width: 100%
-    max-width: 800px
-    height: calc(90% - #{$contentmargin} - #{$footerheight} - 40px)
-    min-height: 400px
-    margin-top: $contentmargin + 20px
-    margin-bottom: $footerheight + 20px
-    margin-left: auto
-    margin-right: auto
-    background-color: $bgcolor
-    color: $lightcolor
-    border: 2px solid $neutralcolor
-    box-sizing: border-box
-    // box-shadow: 40px 40px 0px 0px rgba($bgcolor, 0.2)
-
-    .md
-      display: block
-      position: absolute
-      width: 100%
-      height: calc(100% - 4em)
-      padding: 1em
-      box-sizing: border-box
-      overflow-y: scroll
-
-    .closeInfo
-      width: 100%
-      height: 2em
-      font-size: 2em
-      padding-top: 10px
-      padding-right: 10px
-      margin: 0px
-      text-align: right
-      box-sizing: border-box
-      display: block
-
-      svg
-        cursor: pointer
-
-@keyframes imgFade
-  0%
-    opacity: 0
-  100%
-    opacity: 1
-
-%project-shared
+#project-item
   display: block
   position: absolute
   width: 100%
@@ -314,64 +257,6 @@ img
   margin: 0 auto
   margin-top: $contentmargin
   margin-bottom: $footerheight
-
-#project-list
-  @extend %project-shared
-
-  .projectListWrap
-    display: block
-    width: 100%
-    justify-content: center
-    flex-wrap: wrap
-
-    .listItem
-      display: block
-      position: absolute
-      // flex-basis: $projectlistwidth/3
-      cursor: pointer
-      // transform: translateX(0vw)
-      // transition: transform 0.7s ease-in-out
-
-      &>div
-        display: block
-        width: 100%
-        box-sizing: border-box
-
-      .listItemImg
-        margin-bottom: -4px
-        padding: 10px
-        width: 200px
-        height: 200px
-        background-size: cover
-        background-position: center
-        transition: all 0.1s ease-in-out
-        // height: 200px
-        // animation: imgFade 0.5s ease-in
-        // animation-fill-mode: forwards
-        // opacity: 0
-
-        img
-          position: relative
-          width: 100%
-          height: 100%
-          border: 1px solid $neutralcolor
-          background: $neutralcolor
-          // box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.50)
-
-        .listItemTitle
-          padding-bottom: 10px
-          position: absolute
-          top: 10px
-          left: 10px
-          z-index: 10
-          padding-left: 5px
-          padding-top: 5px
-
-          h2
-            text-shadow: 2px 2px $bgcolor
-
-#project-item
-  @extend %project-shared
 
   .projectItemWrap
     width: 100%
@@ -401,25 +286,6 @@ img
           box-shadow: 10px 10px 0px rgba(16, 23, 25, 0.5)
 
 /* VUE TRANSITIONS */
-
-//infofade
-.infofade-enter-active, .infofade-leave-active
-  transition: opacity 0.3s
-
-.infofade-enter, .infofade-leave-to
-  opacity: 0
-
-.aboutslide-enter-active, .aboutslide-leave-active
-  transition: transform 0.7s ease-in-out
-
-.aboutslide-enter, .aboutslide-leave-to
-  transform: translateY(100vh)
-
-.contactslide-enter-active, .contactslide-leave-active
-  transition: transform 0.7s ease-in-out
-
-.contactslide-enter, .contactslide-leave-to
-  transform: translateY(-100vh)
 
 //listslide
 .listslide-enter-active, .listslide-leave-active
