@@ -91,6 +91,7 @@ function Bug(x, y) {
     ctx.beginPath();
     ctx.rect(this.x, this.y, this.size, this.size);
     ctx.fillStyle = "rgba(138,205,148," + this.opacity + ")";
+    // ctx.fillStyle = "rgba(246,246,246," + this.opacity + ")";
     ctx.fill();
     if (!this.isAlive) {
       if (this.opacity <= 0) {

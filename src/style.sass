@@ -15,7 +15,7 @@
 //   font-weight: 300
 //   src: url('/src/FuturaStd-Light.otf')
 
-green tones
+// green tones
 $lightcolor: #c6dec0
 $neutralcolor: #8acd94
 $darkcolor: #63a088
@@ -76,10 +76,6 @@ p
 
 img
   opacity: 1
-  transition: opacity 0.3s
-
-img[data-src]
-  opacity: 0
 
 #canvashook
 
@@ -92,7 +88,7 @@ img[data-src]
     pointer-events: none
     overflow-x: hidden
     transform: translateX(0%)
-    transition: transform 0.7s ease-in-out
+    transition: transform 1s ease-in-out
     z-index: -1
 
   &.move
@@ -303,6 +299,12 @@ img[data-src]
       svg
         cursor: pointer
 
+@keyframes imgFade
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
 %project-shared
   display: block
   position: absolute
@@ -327,6 +329,8 @@ img[data-src]
       position: relative
       flex-basis: $projectlistwidth/3
       cursor: pointer
+      // transform: translateX(0vw)
+      // transition: transform 0.7s ease-in-out
 
       &>div
         display: block
@@ -337,12 +341,17 @@ img[data-src]
         margin-bottom: -4px
         padding: 10px
         transition: all 0.1s ease-in-out
+        height: 200px
+        animation: imgFade 0.5s ease-in
+        animation-fill-mode: forwards
+        opacity: 0
 
         img
           position: relative
           width: 100%
-          height: auto
+          height: 100%
           border: 1px solid $neutralcolor
+          background: $neutralcolor
           // box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.50)
 
         .listItemTitle
@@ -410,14 +419,17 @@ img[data-src]
 
 //listslide
 .listslide-enter-active, .listslide-leave-active
-  transition: transform 0.7s ease-in-out
+  transition: transform 1s ease-in-out
 
 .listslide-enter, .listslide-leave-to
-  transform: translateX(-100vw)
+  transform: translateX(-150vw)
+
+.listslide-enter-to, .v-leave
+  transform: translateX(0vw)
 
 //projectslide
 .projectslide-enter-active, .projectslide-leave-active
-  transition: transform 0.7s ease-in-out
+  transition: transform 1s ease-in-out
 
 .projectslide-enter, .projectslide-leave-to
   transform: translateX(100vw)

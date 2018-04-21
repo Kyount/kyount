@@ -64,20 +64,22 @@
       </div>
     </transition>
 
-    <transition name="listslide">
-      <div id="project-list" v-show="isProjectShowing == false">
-        <div class="projectListWrap">
-          <div class="listItem" v-for="(project, index) in projects" @click="showProject(project)">
-            <div class="listItemImg">
-              <!-- <div class="listItemTitle">
-                <h2>{{project.title}}</h2>
-              </div> -->
-              <img :src="project.thumbnail" alt="">
+    <!-- <transition name="listslide"> -->
+      <div id="project-list">
+        <!-- <div class="projectListWrap"> -->
+          <transition-group tag="div" class="projectListWrap" name="listslide">
+            <div class="listItem" v-for="(project, index) in projects" @click="showProject(project)" :key="project.id" :style="'transition-delay:' +  (0.05 * index) + 's'" v-show="isProjectShowing == false">
+              <div class="listItemImg" :style="'animation-delay:' + (0.2 * index) + 's'">
+                <!-- <div class="listItemTitle">
+                  <h2>{{project.title}}</h2>
+                </div> -->
+                <img :src="project.thumbnail" alt="">
+              </div>
             </div>
-          </div>
-        </div>
+          </transition-group>
+        <!-- </div> -->
       </div>
-    </transition>
+    <!-- </transition> -->
 
     <transition name="projectslide">
       <div id="project-item" v-show="isProjectShowing == true">
