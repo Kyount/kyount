@@ -30,7 +30,7 @@
         <div class="listItem"
             v-for="(project, index) in projects"
             @click="showProject(project)"
-            :style="'transition-delay:' +  (0.05 * index) + 's'">
+            :style="'transition-delay:' +  (0.05 * index) + 's; animation-delay: ' + (-0.5 * index) + 's'">
           <span>{{project.title}}</span>
         </div>
       </div>
@@ -79,15 +79,15 @@
     <div id="footer">
       <transition name="infofade">
         <div id="backtolist" @click="hideProject()" v-if="isProjectShowing == true">
-          <span><i class="fas fa-arrow-left"></i>back to list</span>
+          <span><i class="fas fa-arrow-left"></i>back</span>
         </div>
       </transition>
-      <div class="social">
-        <div class="s_item">
+      <div class="social" :class="{mainscreen: !isProjectShowing}">
+        <div class="s_item" style="animation-delay:-1s; transition-delay:0.1s">
           <a href="#"><i class="fab fa-linkedin"></i></a>
         </div>
         <div class="s_item">
-          <a href=""><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
         </div>
       </div>
     </div>
