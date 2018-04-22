@@ -130,6 +130,8 @@ img
   justify-content: center
   top: 0%
   left: 0%
+  transform: translateX(0%)
+  transition: all 0.7s ease-in-out
 
   &.mainscreen
 
@@ -148,6 +150,10 @@ img
 
     .title span, .subtitle span
       transform: translateX(-50%)
+
+  &:not(.mainscreen)
+    @include media("<small")
+      transform: translateX(-100%)
 
   %title-shared
     display: flex
@@ -178,9 +184,6 @@ img
     font-weight: 300
     line-height: 1rem
     transition-delay: 0.05s
-    @include media("<small")
-      font-size: 0.6rem
-      max-width: 200px
 
 .navigation
   display: flex
@@ -188,6 +191,7 @@ img
   width: 250px
   right: 0%
   top: 0%
+  transform: translate(0%)
   flex-wrap: wrap-reverse
   justify-content: center
   transition: all 0.7s ease-in-out
@@ -199,6 +203,11 @@ img
     .listItem
       @extend %wave-animation
       top: 50vh !important
+
+  &:not(.mainstream)
+    @include media("<small")
+      right: 50%
+      transform: translate(50%)
 
 // #project-list
 //   display: flex
@@ -257,10 +266,12 @@ img
 
 .social
   display: flex
+  position: absolute
   height: 100%
   max-width: 500px
-  margin-right: 50%
-  transform: translateX(50%)
+  width: 100%
+  left: 50%
+  transform: translateX(-50%)
   justify-content: center
   box-sizing: border-box
   font-size: 1.1rem
@@ -268,7 +279,7 @@ img
 
   @include media("<small")
     &:not(.mainscreen)
-      margin-right: 0%
+      left: 0%
       transform: translateX(25%)
 
   .s_item
@@ -309,7 +320,7 @@ img
   max-width: 900px
   min-width: 360px
   margin: 0 auto
-  margin-top: $contentmargin
+  margin-top: $contentmargin + 20px
   margin-bottom: $footerheight
 
   .projectItemWrap
@@ -319,6 +330,7 @@ img
     box-sizing: border-box
 
     .projectTitle
+      text-align: center
 
       h1
 
