@@ -30,7 +30,8 @@
         <div class="listItem"
             v-for="(project, index) in projects"
             @click="showProject(project)"
-            :style="'transition-delay:' +  (0.05 * index) + 's; animation-delay: ' + (-0.5 * index) + 's'">
+            :style="'transition-delay:' +  (0.05 * index) + 's; animation-delay: ' + (-0.5 * index) + 's'"
+            :class="{activeItem: activeProject == index}">
           <span>{{project.title}}</span>
         </div>
       </div>
@@ -42,16 +43,16 @@
       <transition name="projectswitch">
         <div class="projectItemWrap" v-show="activeProject == 0">
           <div class="projectTitle">
-            <h1>{{projects[0].title}}</h1>
+            <!-- <h1>{{projects[0].title}}</h1> -->
           </div>
         </div>
       </transition>
 
-      <!-- PROJECTS -->
+      <!-- CONTACT -->
       <transition name="projectswitch">
         <div class="projectItemWrap" v-show="activeProject == 1">
           <div class="projectTitle">
-            <h1>{{projects[1].title}}</h1>
+            <!-- <h1>{{projects[1].title}}</h1> -->
           </div>
         </div>
       </transition>
@@ -60,16 +61,27 @@
       <transition name="projectswitch">
         <div class="projectItemWrap" v-show="activeProject == 2">
           <div class="projectTitle">
-            <h1>{{projects[2].title}}</h1>
+            <!-- <h1>{{projects[2].title}}</h1> -->
           </div>
         </div>
       </transition>
 
-      <!-- CONTACT -->
+      <!-- PROJECTS -->
       <transition name="projectswitch">
         <div class="projectItemWrap" v-show="activeProject == 3">
-          <div class="projectTitle">
-            <h1>{{projects[3].title}}</h1>
+          <!-- <div class="projectTitle">
+             <h1>{{projects[3].title}}</h1>
+          </div> -->
+          <!-- <div class="md">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed. Praesent sollicitudin odio a ullamcorper egestas. Nulla egestas leo sem. Nunc maximus porta purus, vitae vestibulum tortor.</p>
+          </div> -->
+          <div class="workProject" v-for="(project, index) in projectList">
+            <div class="workProjectImg">
+              <img :src="projectList[index].image" alt="">
+            </div>
+            <div class="workProjectDesc">
+              <p>{{projectList[index].desc}}</p>
+            </div>
           </div>
         </div>
       </transition>

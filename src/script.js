@@ -7,7 +7,7 @@ var projectObj = [
   {
     id: 1,
     selected: false,
-    title: "PROJECTS",
+    title: "CONTACT",
   },
   {
     id: 2,
@@ -17,7 +17,19 @@ var projectObj = [
   {
     id: 3,
     selected: false,
-    title: "CONTACT",
+    title: "PROJECTS",
+    projectList: [
+      {
+        title: "PROJECT 1",
+        image: "http://unsplash.it/450/200/?random",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed."
+      },
+      {
+        title: "PROJECT 2",
+        image: "http://unsplash.it/450/201/?random",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed."
+      },
+    ]
   }
 ];
 
@@ -31,7 +43,8 @@ var vm = new Vue({
     isProjectShowing: false,
     isInfoShowing: false,
     activeProject: -1,
-    projects: projectObj
+    projects: projectObj,
+    projectList: projectObj[3].projectList
   },
   computed: {
     isMobileDevice: function() {
