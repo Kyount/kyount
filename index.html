@@ -36,53 +36,45 @@
       </div>
     </div>
 
-    <transition name="projectslide">
-      <div id="project-item" v-show="isProjectShowing == true">
+    <div id="project-item">
 
-        <!-- PROJECT 1 -->
+      <!-- PROJECT 1 -->
+      <transition name="projectswitch">
         <div class="projectItemWrap" v-show="activeProject == 0">
           <div class="projectTitle">
-            <h1>{{projects[activeProject].title}}</h1>
+            <h1>{{projects[0].title}}</h1>
           </div>
         </div>
+      </transition>
 
-        <!-- PROJECT 2 -->
+      <!-- PROJECT 2 -->
+      <transition name="projectswitch">
         <div class="projectItemWrap" v-show="activeProject == 1">
           <div class="projectTitle">
-            <h1>{{projects[activeProject].title}}</h1>
+            <h1>{{projects[1].title}}</h1>
           </div>
         </div>
+      </transition>
 
-        <!-- PROJECT 3 -->
+      <!-- PROJECT 3 -->
+      <transition name="projectswitch">
         <div class="projectItemWrap" v-show="activeProject == 2">
           <div class="projectTitle">
-            <h1>{{projects[activeProject].title}}</h1>
+            <h1>{{projects[2].title}}</h1>
           </div>
         </div>
+      </transition>
 
-        <!-- PROJECT 4 -->
+      <!-- PROJECT 4 -->
+      <transition name="projectswitch">
         <div class="projectItemWrap" v-show="activeProject == 3">
           <div class="projectTitle">
-            <h1>{{projects[activeProject].title}}</h1>
+            <h1>{{projects[3].title}}</h1>
           </div>
         </div>
+      </transition>
 
-        <!-- PROJECT 5 -->
-        <div class="projectItemWrap" v-show="activeProject == 4">
-          <div class="projectTitle">
-            <h1>{{projects[activeProject].title}}</h1>
-          </div>
-        </div>
-
-        <!-- PROJECT 6 -->
-        <div class="projectItemWrap" v-show="activeProject == 5">
-          <div class="projectTitle">
-            <h1>{{projects[activeProject].title}}</h1>
-          </div>
-        </div>
-
-      </div>
-    </transition>
+    </div>
 
     <div id="footer">
       <transition name="infofade">

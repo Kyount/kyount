@@ -48,7 +48,7 @@ var vm = new Vue({
     contactBox: false,
     isProjectShowing: false,
     isInfoShowing: false,
-    activeProject: 1,
+    activeProject: -1,
     projects: projectObj
   },
   computed: {
@@ -76,6 +76,7 @@ var vm = new Vue({
       this.isProjectShowing = true;
     },
     hideProject: function() {
+      this.activeProject = -1;
       this.isProjectShowing = false;
       window.scrollTo(0, 0);
     },

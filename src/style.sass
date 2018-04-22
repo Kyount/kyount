@@ -281,6 +281,7 @@ img
   margin-bottom: $footerheight
 
   .projectItemWrap
+    position: absolute
     width: 100%
     padding: 0px 15px
     box-sizing: border-box
@@ -316,7 +317,7 @@ img
 .listslide-enter, .listslide-leave-to
   transform: translateX(-150vw)
 
-.listslide-enter-to, .v-leave
+.listslide-enter-to, .listslide-leave
   transform: translateX(0vw)
 
 //projectslide
@@ -325,6 +326,18 @@ img
 
 .projectslide-enter, .projectslide-leave-to
   transform: translateX(100vw)
+
+.projectswitch-enter-active, .projectswitch-leave-active
+  transition: transform 1s ease-in-out
+
+.projectswitch-enter
+  transform: translateX(100vw)
+
+.projectswitch-enter-to, .projectswitch-leave
+  transform: translateX(0vw)
+
+.projectswitch-leave-to
+  transform: translateX(-100vw)
 
 // //canvasslide
 // .canvasslide-enter-active, .canvasslide-leave-active
