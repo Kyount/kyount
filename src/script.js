@@ -1,3 +1,4 @@
+var randomImg = function(width, height) {return "http://picsum.photos/" + width + "/" + height + "/?image=" + Math.floor(Math.random()*1000);};
 var projectObj = [
   {
     id: 0,
@@ -21,13 +22,15 @@ var projectObj = [
     projectList: [
       {
         title: "PROJECT 1",
-        image: "http://unsplash.it/450/200/?random",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed."
+        image: randomImg(450, 200),
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
+        link: "#"
       },
       {
         title: "PROJECT 2",
-        image: "http://unsplash.it/450/201/?random",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed."
+        image: randomImg(450, 200),
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
+        link: "#"
       },
     ]
   }
@@ -49,9 +52,12 @@ var vm = new Vue({
   computed: {
     isMobileDevice: function() {
       return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-    },
+    }
   },
   methods: {
+    randomPhoto: function(width, height) {
+      return "http://picsum.photos/" + width + "/" + height + "/?image=" + Math.floor(Math.random()*1000);
+    },
     showAbout: function() {
       this.hideContact();
       this.aboutBox = true;

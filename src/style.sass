@@ -146,6 +146,9 @@ img
     .title
       @extend %main-titles
       animation-delay: -1s
+      span
+        cursor: default
+
 
     .subtitle
       @extend %main-titles
@@ -157,6 +160,10 @@ img
   &:not(.mainscreen)
     @include media("<small")
       transform: translateX(-100%)
+
+    .title span
+      cursor: pointer
+
 
   %title-shared
     display: flex
@@ -266,7 +273,7 @@ img
   cursor: pointer
 
   &>*
-    background-color: $lightcolor
+    background-color: $neutralcolor
     color: $bgcolor
     padding: 5px 10px
     border-radius: 10px
@@ -288,11 +295,6 @@ img
   box-sizing: border-box
   font-size: 1.1rem
   transition: all 0.7s ease-in-out
-
-  @include media("<small")
-    &:not(.mainscreen)
-      left: 0%
-      transform: translateX(25%)
 
   .s_item
     display: flex
@@ -358,6 +360,7 @@ img
       &>*
         max-width: 50%
         box-sizing: border-box
+        align-items: center
         @include media("<medium")
           max-width: 100%
 
@@ -374,24 +377,64 @@ img
           padding: 0em 0.5rem
           margin-top: 0px
 
+      .workProjectLink
+        text-align: left
+        margin: 1em 0.5em
+        margin-top: 0em
+        @include media("<medium")
+          text-align: center
+          margin-top: 1em
 
-    // .projectItemImagesWrap
-    //   display: flex
-    //   flex-wrap: wrap
-    //
-    //   .projectItemImage
-    //     flex-basis: 50%
-    //     margin-bottom: -4px
-    //     padding: 10px
-    //     box-sizing: border-box
-    //
-    //     @include media("<medium")
-    //       flex-basis: 100%
-    //
-    //     img
-    //       width: 100%
-    //       height: auto
-    //       box-shadow: 10px 10px 0px rgba(16, 23, 25, 0.5)
+        &>*
+          display: inline-block
+
+        h3
+          margin: 0em
+
+        a
+          margin-left: 1em
+          color: $neutralcolor
+          border: 1px solid $neutralcolor
+          padding: 0.2em 1em
+          border-radius: 1em
+          text-decoration: none
+
+    .photoList
+      display: block
+      width: 100%
+
+      img
+        display: inline-block
+        margin: 0 auto
+        padding: 0.5rem
+        max-width: 50%
+        box-sizing: border-box
+        height: auto
+        @include media("<medium")
+          max-width: 100%
+
+    .contactWrap
+      display: block
+      position: absolute
+      left: 50%
+      top: 30vh
+      transform: translate(-50%, -50%)
+      text-align: center
+
+      h2
+        @extend %wave-animation
+        color: $lightcolor
+        margin: 1em 0em
+        font-size: 1.7em
+        @include media("<medium")
+          font-size: 1.2em
+
+        a
+          text-decoration: none
+          color: $neutralcolor
+          border: 1px solid $neutralcolor
+          border-radius: 1em
+          padding: 0.2em 1em
 
 /* VUE TRANSITIONS */
 

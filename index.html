@@ -23,7 +23,7 @@
 
     <div id="header">
       <div class="logotitle" :class="{mainscreen: !isProjectShowing}">
-        <div class="title"><span>KYLE YOUNT</span></div>
+        <div class="title"><span @click="hideProject()">KYLE YOUNT</span></div>
         <div class="subtitle"><span>WEB DEVELOPMENT AND DESIGN</span></div>
       </div>
       <div class="navigation" :class="{mainscreen: !isProjectShowing}">
@@ -42,17 +42,21 @@
       <!-- ABOUT -->
       <transition name="projectswitch">
         <div class="projectItemWrap" v-show="activeProject == 0">
-          <div class="projectTitle">
-            <!-- <h1>{{projects[0].title}}</h1> -->
-          </div>
+          <!-- <div class="projectTitle">
+            <h1>{{projects[0].title}}</h1>
+          </div> -->
         </div>
       </transition>
 
       <!-- CONTACT -->
       <transition name="projectswitch">
         <div class="projectItemWrap" v-show="activeProject == 1">
-          <div class="projectTitle">
-            <!-- <h1>{{projects[1].title}}</h1> -->
+          <!-- <div class="projectTitle">
+            <h1>{{projects[1].title}}</h1>
+          </div> -->
+          <div class="contactWrap">
+            <h2>For all inquiries, please email:</h2>
+            <h2 style="animation-delay:-1s"><a href="mailto:kyle@kyount.com">kyle@kyount.com</a></h2>
           </div>
         </div>
       </transition>
@@ -60,8 +64,11 @@
       <!-- PHOTOGRAPHY -->
       <transition name="projectswitch">
         <div class="projectItemWrap" v-show="activeProject == 2">
-          <div class="projectTitle">
-            <!-- <h1>{{projects[2].title}}</h1> -->
+          <!-- <div class="projectTitle">
+            <h1>{{projects[2].title}}</h1>
+          </div> -->
+          <div class="photoList">
+            <img v-for="i in 10" :src="randomPhoto(600, 400)" alt="">
           </div>
         </div>
       </transition>
@@ -80,6 +87,10 @@
               <img :src="projectList[index].image" alt="">
             </div>
             <div class="workProjectDesc">
+              <div class="workProjectLink">
+                <h3>{{projectList[index].title}}</h3>
+                <a :href="projectList[index].link">visit website <i class="fas fa-arrow-right"></i></a>
+              </div>
               <p>{{projectList[index].desc}}</p>
             </div>
           </div>
@@ -89,11 +100,11 @@
     </div>
 
     <div id="footer">
-      <transition name="infofade">
+      <!-- <transition name="infofade">
         <div id="backtolist" @click="hideProject()" v-if="isProjectShowing == true">
           <span><i class="fas fa-arrow-left"></i>back</span>
         </div>
-      </transition>
+      </transition> -->
       <div class="social" :class="{mainscreen: !isProjectShowing}">
         <div class="s_item" style="animation-delay:-1s; transition-delay:0.1s">
           <a href="#"><i class="fab fa-linkedin"></i></a>
