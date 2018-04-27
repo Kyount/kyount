@@ -343,6 +343,9 @@ img
     padding: 0px 15px
     box-sizing: border-box
 
+    .transDelay
+      position: relative
+
     .projectTitle
       text-align: center
       margin-bottom: 2em
@@ -404,15 +407,19 @@ img
       display: block
       width: 100%
 
-      img
+      .photoWrap
         display: inline-block
         margin: 0 auto
         padding: 0.5rem
         max-width: 50%
         box-sizing: border-box
-        height: auto
         @include media("<medium")
           max-width: 100%
+
+        img
+          width: 100%
+          height: auto
+          background-color: $neutralcolor
 
     .contactWrap
       display: block
@@ -422,20 +429,55 @@ img
       transform: translate(-50%, -50%)
       text-align: center
 
-      h2
+      div
         @extend %wave-animation
-        color: $lightcolor
-        margin: 1em 0em
-        font-size: 1.7em
-        @include media("<medium")
-          font-size: 1.2em
 
-        a
-          text-decoration: none
-          color: $neutralcolor
-          border: 1px solid $neutralcolor
-          border-radius: 1em
-          padding: 0.2em 1em
+        h2
+          color: $lightcolor
+          margin: 1em 0em
+          font-size: 1.7em
+          @include media("<medium")
+            font-size: 1.2em
+
+          a
+            text-decoration: none
+            color: $neutralcolor
+            border: 1px solid $neutralcolor
+            border-radius: 1em
+            padding: 0.2em 1em
+
+    .toolKit
+      width: 100%
+      margin-bottom: $footerheight
+
+      .toolGroup
+        display: flex
+        margin-bottom: 1rem
+        @include media ("<medium")
+          flex-direction: column
+        &>*
+          max-width: 50%
+          flex-grow: 1
+          @include media("<medium")
+            max-width: 100%
+
+        .toolIconGroup
+          border: 1px dashed transparentize($lightcolor, 0.2)
+          margin: 0rem 1rem
+          box-sizing: border-box
+          display: flex
+          justify-content: center
+          align-items: center
+
+          i
+            padding: 0rem 1rem
+            font-size: 5em
+
+        .toolDesc
+
+          p
+
+
 
 /* VUE TRANSITIONS */
 
@@ -457,16 +499,20 @@ img
   transform: translateX(100vw)
 
 .projectswitch-enter-active, .projectswitch-leave-active
-  transition: transform 1s ease-in-out
+  .transDelay
+    transition: transform 1s ease-in-out
 
 .projectswitch-enter
-  transform: translateX(100vw)
+  .transDelay
+    transform: translateX(100vw)
 
 .projectswitch-enter-to, .projectswitch-leave
-  transform: translateX(0vw)
+  .transDelay
+    transform: translateX(0vw)
 
 .projectswitch-leave-to
-  transform: translateX(-100vw)
+  .transDelay
+    transform: translateX(-100vw)
 
 // //canvasslide
 // .canvasslide-enter-active, .canvasslide-leave-active
