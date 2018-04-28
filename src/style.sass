@@ -434,6 +434,7 @@ img
 
         h2
           color: $lightcolor
+          font-weight: 600
           margin: 1em 0em
           font-size: 1.7em
           @include media("<medium")
@@ -445,6 +446,23 @@ img
             border: 1px solid $neutralcolor
             border-radius: 1em
             padding: 0.2em 1em
+
+    .toolTitle
+      color: $bgcolor
+      font-size: 2em
+      font-weight: 600
+      letter-spacing: 0.1em
+      margin: 2rem 0rem
+      span
+        background-color: $neutralcolor
+        padding: 0.1em 0.5em
+        svg
+          padding-left: 0.3em
+
+    .aboutIntro
+      span
+        font-size: 1.5em
+        font-weight: 600
 
     .toolKit
       width: 100%
@@ -462,14 +480,18 @@ img
             max-width: 100%
 
         .toolIconGroup
-          border: 1px dashed transparentize($lightcolor, 0.2)
-          margin: 0rem 1rem
+          border: 4px double transparentize($neutralcolor, 0.6)
+          margin-right: 1rem
+          min-height: 8rem
           box-sizing: border-box
           display: flex
           justify-content: center
           align-items: center
+          @include media("<medium")
+            margin-right: 0rem
 
           i
+            color: $neutralcolor
             padding: 0rem 1rem
             font-size: 5em
 
