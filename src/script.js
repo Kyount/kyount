@@ -1,3 +1,4 @@
+// import('/src/bugs.js');
 var randomImg = function(width, height) {return "http://picsum.photos/" + width + "/" + height + "/?image=" + Math.floor(Math.random()*1000);};
 var projectObj = [
   {
@@ -90,6 +91,5 @@ var vm = new Vue({
     .velocity({opacity:0}, {duration: 1000})
     .velocity({display:'none'}, {duration: 0});
 
-    import('/src/bugs.js');
   }
 });

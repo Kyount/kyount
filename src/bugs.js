@@ -11,7 +11,7 @@ var bugCounter = 0;
 
 function setup() {
   // setup the canvas size to match the window
-  canvas.width = window.innerWidth * 1.5;
+  canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
   // set the 0,0 point to the middle of the canvas
