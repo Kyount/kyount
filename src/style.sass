@@ -307,7 +307,7 @@ img
     align-items: center
     justify-content: center
     width: 100%
-    max-width: 4em
+    max-width: 3em
     transition: 0.7s ease-in-out
 
     a
@@ -331,6 +331,19 @@ img
   z-index: 10000
   background-color: $bgcolor
   pointer-events: none
+
+.aboutIntro
+  span
+    font-size: 1.5em
+    font-weight: 600
+    line-height: 1.5em
+
+    a
+      text-decoration: none
+      color: $neutralcolor
+      border: 1px solid $neutralcolor
+      border-radius: 1em
+      padding: 0em 0.8em
 
 #project-item
   display: block
@@ -375,6 +388,21 @@ img
         @include media("<medium")
           max-width: 100%
 
+      .workProjectMore
+        @extend .aboutIntro
+        max-width: 100% !important
+        margin-bottom: 2rem
+
+        span
+
+          a
+            color: $neutralcolor
+            border: 1px solid $neutralcolor
+            padding: 0.2em 1em
+            border-radius: 1em
+            text-decoration: none
+            font-size: 0.8em
+
       .workProjectImg
         padding: 0em 0.5rem
 
@@ -409,6 +437,13 @@ img
           padding: 0.2em 1em
           border-radius: 1em
           text-decoration: none
+          font-size: 0.8em
+
+        .noLink
+          font-style: italic
+          color: transparentize($lightcolor, 0.6)
+          font-size: 0.8em
+          padding-left: 1em
 
     .photoList
       display: flex
@@ -417,6 +452,7 @@ img
       width: $fullwidth
       max-width: 900px
       box-sizing: border-box
+      margin-top: 50px
 
       .photoWrap
         display: inline-block
@@ -430,7 +466,7 @@ img
         img
           width: 100%
           height: auto
-          background-color: $neutralcolor
+          // background-color: $neutralcolor
 
     .contactWrap
       display: block
@@ -469,11 +505,6 @@ img
         padding: 0.1em 0.5em
         svg
           padding-left: 0.3em
-
-    .aboutIntro
-      span
-        font-size: 1.5em
-        font-weight: 600
 
     .toolKit
       width: 100%

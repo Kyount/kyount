@@ -110,9 +110,12 @@
           <!-- <div class="projectTitle">
             <h1>{{projects[2].title}}</h1>
           </div> -->
+          <div class="aboutIntro transDelay" style="transition-delay: 0.05s">
+            <span>I do enjoy photography. Here are a select number of photos from my <a href="http://instagram.com/cubeshark" target="_blank">Instagram</a> taken over the last few years.</span>
+          </div>
           <div class="photoList">
-            <div class="photoWrap transDelay" v-for="(i, index) in 10" :style="'transition-delay:' + 0.05*index + 's'" >
-              <img :src="randomPhoto(600, 400)" alt="">
+            <div class="photoWrap transDelay" v-for="(i, index) in 16" :style="'transition-delay:' + 0.05*index + 's'" >
+              <img :src="'/img/photos/' + (index + 1) + '.jpg'" alt="">
             </div>
           </div>
         </div>
@@ -124,16 +127,22 @@
           <!-- <div class="projectTitle">
              <h1>{{projects[3].title}}</h1>
           </div> -->
-          <div class="workProject transDelay" :style="'transition-delay:' + 0.05*index + 's'" v-for="(project, index) in projectList">
+          <div class="workProject transDelay" v-for="(project, index) in projectList" :style="'transition-delay:' + 0.05*index + 's'">
             <div class="workProjectImg">
               <img :src="projectList[index].image" alt="">
             </div>
             <div class="workProjectDesc">
               <div class="workProjectLink">
                 <h3>{{projectList[index].title}}</h3>
-                <a :href="projectList[index].link">visit website <i class="fas fa-arrow-right"></i></a>
+                <a v-if="projectList[index].link != null" :href="projectList[index].link" target="_blank">visit website <i class="fas fa-arrow-right"></i></a>
+                <div class="noLink" v-else>(website unavailable)</div>
               </div>
               <p>{{projectList[index].desc}}</p>
+            </div>
+          </div>
+          <div class="workProject transDelay">
+            <div class="workProjectMore">
+              <span>For more examples of my work, check out my <a href="http://codepen.io/cubeshark">Codepen</a> and <a href="http://github.com/kyount">Github</a></span>
             </div>
           </div>
         </div>
@@ -147,12 +156,18 @@
           <span><i class="fas fa-arrow-left"></i>back</span>
         </div>
       </transition> -->
-      <div class="social" :class="{mainscreen: !isProjectShowing}">
-        <div class="s_item" style="animation-delay:-1s; transition-delay:0.1s">
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
+      <div class="social" :class="{mainscreen: (!isProjectShowing || activeProject == 1)}">
         <div class="s_item">
-          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/kyle-yount/"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="s_item" style="animation-delay:-1s; transition-delay:0.05s">
+          <a href="https://github.com/kyount"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="s_item" style="animation-delay:-2s; transition-delay:0.1s">
+          <a href="https://instagram.com/cubeshark"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="s_item" style="animation-delay:-3s; transition-delay:0.15s">
+          <a href="https://codepen.io/cubeshark"><i class="fab fa-codepen"></i></a>
         </div>
       </div>
     </div>

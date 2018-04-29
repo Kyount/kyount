@@ -22,17 +22,47 @@ var projectObj = [
     title: "PROJECTS",
     projectList: [
       {
-        title: "PROJECT 1",
-        image: randomImg(450, 200),
+        title: "PRODIGAL PICTURES",
+        image: "/img/projects/prodigalpictures.jpg",
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
-        link: "#"
+        link: "http://prodigalpictures.com"
       },
       {
-        title: "PROJECT 2",
-        image: randomImg(450, 200),
+        title: "CUBESHARK",
+        image: "/img/projects/cubeshark.jpg",
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
-        link: "#"
+        link: "http://cubeshark.net"
       },
+      {
+        title: "JOY FOR THIS JOURNEY",
+        image: "/img/projects/joyforthisjourney.jpg",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
+        link: null
+      },
+      {
+        title: "WEST BEACH MOSAICS",
+        image: "/img/projects/westbeachmosaics.jpg",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
+        link: "http://westbeachmosaics.com"
+      },
+      {
+        title: "CLEMMER GL",
+        image: "/img/projects/clemmergl.jpg",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
+        link: "http://clemmergl.com"
+      },
+      {
+        title: "RANSOM NOTE GENERATOR",
+        image: "/img/projects/ransomnote.jpg",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
+        link: "http://kyount.github.com/randomransom"
+      },
+      {
+        title: "GOODBYE PATCHES",
+        image: "/img/projects/goodbyepatches.jpg",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
+        link: "http://kyount.github.com/goodbyepatches"
+      }
     ]
   }
 ];
