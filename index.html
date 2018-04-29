@@ -3,6 +3,7 @@
 <head>
   <title>Kyle Yount Front-End Web Development and Design</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202d31">
   <!-- FONTAWESOME -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
@@ -105,11 +106,8 @@
       </transition>
 
       <!-- PHOTOGRAPHY -->
-      <transition name="projectswitch" :duration="1400">
+      <!-- <transition name="projectswitch" :duration="1400">
         <div class="projectItemWrap" v-if="activeProject == 2">
-          <!-- <div class="projectTitle">
-            <h1>{{projects[2].title}}</h1>
-          </div> -->
           <div class="aboutIntro transDelay" style="transition-delay: 0.05s">
             <span>I do enjoy photography. Here are a select number of photos from my <a href="http://instagram.com/cubeshark" target="_blank">Instagram</a> taken over the last few years.</span>
           </div>
@@ -119,11 +117,11 @@
             </div>
           </div>
         </div>
-      </transition>
+      </transition> -->
 
       <!-- PROJECTS -->
       <transition name="projectswitch" :duration="1400">
-        <div class="projectItemWrap" v-if="activeProject == 3">
+        <div class="projectItemWrap" v-if="activeProject == 2">
           <!-- <div class="projectTitle">
              <h1>{{projects[3].title}}</h1>
           </div> -->
@@ -137,7 +135,7 @@
                 <a v-if="projectList[index].link != null" :href="projectList[index].link" target="_blank">visit website <i class="fas fa-arrow-right"></i></a>
                 <div class="noLink" v-else>(website unavailable)</div>
               </div>
-              <p>{{projectList[index].desc}}</p>
+              <p v-html="projectList[index].desc"></p>
             </div>
           </div>
           <div class="workProject transDelay">

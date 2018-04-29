@@ -11,56 +11,56 @@ var projectObj = [
     selected: false,
     title: "CONTACT",
   },
+  // {
+  //   id: 2,
+  //   selected: false,
+  //   title: "PHOTOS",
+  // },
   {
     id: 2,
-    selected: false,
-    title: "PHOTOGRAPHY",
-  },
-  {
-    id: 3,
     selected: false,
     title: "PROJECTS",
     projectList: [
       {
         title: "PRODIGAL PICTURES",
         image: "/img/projects/prodigalpictures.jpg",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
+        desc: "Prodigal Pictures, a motion graphic design studio, asked me to build their website. It features an animated home-page intro and many other custom animations/transitions. I worked closely with their lead designer to get the look and feel just right. Built with <b>PHP</b> and the <b>Bootstrap</b> framework.",
         link: "http://prodigalpictures.com"
       },
       {
         title: "CUBESHARK",
         image: "/img/projects/cubeshark.jpg",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
+        desc: "Cubeshark is my alias for music. This site was built to showcase my production. With the Soundcloud API unavailable for new sign-ups at the time of making this, I had to make use of the limited embedded player API to play the music. Built on top of <b>VueJS</b>.",
         link: "http://cubeshark.net"
       },
       {
         title: "JOY FOR THIS JOURNEY",
         image: "/img/projects/joyforthisjourney.jpg",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
+        desc: "Build for a life-coaching client. This was a basic informational website for my client's business. No longer in production. Built using the <b>Laravel</b> framework alongside <b>PHP</b>.",
         link: null
-      },
-      {
-        title: "WEST BEACH MOSAICS",
-        image: "/img/projects/westbeachmosaics.jpg",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
-        link: "http://westbeachmosaics.com"
       },
       {
         title: "CLEMMER GL",
         image: "/img/projects/clemmergl.jpg",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
+        desc: "Built for a client I was working for, this was a site for a single software product called Clemmer GL. I worked with a lead visual designer to bring her visual design ideas into a functional website. Built with a <b>Bootstrap</b> frame.",
         link: "http://clemmergl.com"
+      },
+      {
+        title: "WEST BEACH MOSAICS",
+        image: "/img/projects/westbeachmosaics.jpg",
+        desc: "A simple informational website/logo package set up for a local artist gift-shop and mosaics small business. Uses the <b>Bootstrap</b> framework.",
+        link: "http://westbeachmosaics.com"
       },
       {
         title: "RANSOM NOTE GENERATOR",
         image: "/img/projects/ransomnote.jpg",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
+        desc: "A fun project I made while learning <b>VueJS</b>. Letter styles are randomly assigned as you type. You can send notes to your friends, just please do not actually use this for any real ransoms.",
         link: "http://kyount.github.com/randomransom"
       },
       {
         title: "GOODBYE PATCHES",
         image: "/img/projects/goodbyepatches.jpg",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus sit amet sem et imperdiet. Vestibulum sem nunc, suscipit vitae eros vel, vulputate vulputate eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar ante urna, vel varius dui euismod id. Curabitur eget velit ligula. Nunc lacinia diam neque, ac rutrum ante laoreet sed.",
+        desc: "A fun web toy I made based on the popular card game Hearthstone emulating animations and sounds from the game. Warning: might be loud.",
         link: "http://kyount.github.com/goodbyepatches"
       }
     ]
@@ -78,7 +78,7 @@ var vm = new Vue({
     isInfoShowing: false,
     activeProject: -1,
     projects: projectObj,
-    projectList: projectObj[3].projectList
+    projectList: projectObj[2].projectList
   },
   computed: {
     isMobileDevice: function() {

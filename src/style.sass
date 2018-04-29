@@ -202,8 +202,8 @@ img
   display: flex
   position: absolute
   width: 250px
-  right: 0%
-  top: 0%
+  right: 10px
+  top: 0px
   transform: translate(0%)
   flex-wrap: wrap-reverse
   justify-content: center
@@ -233,7 +233,7 @@ img
   position: relative
   align-items: center
   margin: 5px
-  top: 0vh
+  top: 10px
   transition: all 0.7s ease-in-out
 
   span
@@ -318,9 +318,13 @@ img
 
   &.mainscreen .s_item
     @extend %wave-animation
-    bottom: calc(50vh - 150px)
+    bottom: calc(50vh - 110px)
     @include media('<small')
-      bottom: calc(45vh - 150px)
+      animation: none
+      bottom: 0px
+    @include media('height<400px')
+      animation: none
+      bottom: 0px
 
 
 #fadeIn
@@ -352,7 +356,7 @@ img
   max-width: 900px
   min-width: 360px
   margin: 0 auto
-  margin-top: $contentmargin + 20px
+  margin-top: $contentmargin
   margin-bottom: $footerheight
 
   .projectItemWrap
@@ -472,7 +476,7 @@ img
       display: block
       position: fixed
       left: 50%
-      top: 50vh
+      top: 45vh
       transform: translate(-50%, -50%)
       text-align: center
 
