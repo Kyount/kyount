@@ -19,7 +19,7 @@ var projectObj = [
   {
     id: 2,
     selected: false,
-    title: "PROJECTS",
+    title: "MY WORK",
     projectList: [
       {
         title: "PRODIGAL PICTURES",
@@ -75,12 +75,40 @@ var colors = [
     bg: '#202d31',
   },
   {
-    name: "grey",
-    light: '#F6F6F6',
-    neutral: '#F6F6F6',
-    dark: '#666666',
-    bg: '#252525',
+    name: "fancy",
+    light: '#F4F1BB',
+    neutral: '#ED6A5A',
+    dark: '#9BC1BC',
+    bg: '#273133',
   },
+  {
+    name: "blueberry",
+    light: '#d1effb',
+    neutral: '#97bcea',
+    dark: '#4039a5',
+    bg: '#192f4a',
+  },
+  {
+    name: "sandy",
+    light: '#05668D',
+    neutral: '#028090',
+    dark: '#034c69',
+    bg: '#F0F3BD',
+  },
+  {
+    name: "Bus",
+    light: '#E8EDDF',
+    neutral: '#F5CB5C',
+    dark: '#333533',
+    bg: '#242423',
+  },
+  {
+    name: "Lavender",
+    light: '#F4F1DE',
+    neutral: '#F2CC8F',
+    dark: '#81B29A',
+    bg: '#3D405B',
+  }
 ]
 
 var slider; //slider variable
@@ -143,6 +171,7 @@ var vm = new Vue({
       + ';--lightcolor:' + this.colorList[index].light
       + ';--darkcolor:' + this.colorList[index].dark
       + ';--neutralcolor:' + this.colorList[index].neutral + ';';
+      document.querySelector("meta[name=theme-color]").setAttribute("content", this.colorList[index].bg);
       this.activeTheme = index;
     }
   },
