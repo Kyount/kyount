@@ -55,7 +55,7 @@ var projectObj = [
         title: "RANSOM NOTE GENERATOR",
         image: "/img/projects/ransomnote.jpg",
         desc: "A fun project I made while learning <b>VueJS</b>. Letter styles are randomly assigned as you type. You can send notes to your friends, just please do not actually use this for any real ransoms.",
-        link: "http://kyount.github.com/randomransom"
+        link: "http://kyount.github.io/RandomRansom/"
       },
       {
         title: "GOODBYE PATCHES",
