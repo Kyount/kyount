@@ -66,6 +66,22 @@ var projectObj = [
     ]
   }
 ];
+var colors = [
+  {
+    name: "default",
+    light: '#c6dec0',
+    neutral: '#8acd94',
+    dark: '#63a088',
+    bg: '#202d31',
+  },
+  {
+    name: "grey",
+    light: '#F6F6F6',
+    neutral: '#F6F6F6',
+    dark: '#666666',
+    bg: '#252525',
+  },
+]
 
 var slider; //slider variable
 
@@ -78,7 +94,10 @@ var vm = new Vue({
     isInfoShowing: false,
     activeProject: -1,
     projects: projectObj,
-    projectList: projectObj[2].projectList
+    projectList: projectObj[2].projectList,
+    colorList: colors,
+    themeMenuActive: false,
+    activeTheme: 0
   },
   computed: {
     isMobileDevice: function() {
@@ -88,6 +107,9 @@ var vm = new Vue({
   methods: {
     randomPhoto: function(width, height) {
       return "http://picsum.photos/" + width + "/" + height + "/?image=" + Math.floor(Math.random()*1000);
+    },
+    toggleThemeMenu: function() {
+      this.themeMenuActive = !this.themeMenuActive;
     },
     showAbout: function() {
       this.hideContact();
@@ -114,6 +136,14 @@ var vm = new Vue({
     },
     computeBG: function(image) {
       return "background-image: url(" + image + ")";
+    },
+    changeTheme: function(index) {
+      var elm = document.getElementsByTagName('html')[0];
+      elm.style.cssText = '--bgcolor:' + this.colorList[index].bg
+      + ';--lightcolor:' + this.colorList[index].light
+      + ';--darkcolor:' + this.colorList[index].dark
+      + ';--neutralcolor:' + this.colorList[index].neutral + ';';
+      this.activeTheme = index;
     }
   },
   mounted: function() {

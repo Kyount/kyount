@@ -46,8 +46,13 @@ $breakpoints: (small: 640px, medium: 768px, large: 1024px)
 html
   width: 100%
   // height: 100%
-  background-color: $bgcolor
+  background-color: var(--bgcolor)
   overflow-x: hidden
+
+  // --bgcolor: $bgcolor
+  // --lightcolor: $lightcolor
+  // --darkcolor: $darkcolor
+  // --neutralcolor: $neutralcolor
 
 body
   font-family: 'Open Sans', sans-serif
@@ -58,7 +63,7 @@ body
   margin: 0 auto
   font-size: 16px
   // background-color: $bgcolor
-  color: $lightcolor
+  color: var(--lightcolor)
   overflow-x: hidden
 
 
@@ -113,7 +118,7 @@ img
   max-width: 900px
   z-index: 101
   height: $headerheight
-  background-color: $bgcolor
+  background-color: var(--bgcolor)
 
 @keyframes wave
   0%
@@ -175,7 +180,7 @@ img
     left: 20px
     transform: translateX(0%)
     justify-content: flex-start
-    color: $lightcolor
+    color: var(--lightcolor)
     letter-spacing: 0.2em
     margin: 5px 0px
     // padding-left: 15px
@@ -201,8 +206,8 @@ img
 .navigation
   display: flex
   position: absolute
-  width: 250px
-  right: 10px
+  width: 300px
+  right: 20px
   top: 0px
   transform: translate(0%)
   flex-wrap: wrap-reverse
@@ -222,6 +227,46 @@ img
       right: 50%
       transform: translate(50%)
 
+#themeMenu
+  display: block
+  position: absolute
+  top: 100%
+  transform: translateX(-100%)
+  left: 100%
+  padding: 0.5em
+  background-color: var(--bgcolor)
+
+  border: 1px solid var(--neutralcolor)
+  box-sizing: border-box
+
+  .themeWrap
+    display: flex
+    align-items: center
+
+    .themeBlock
+      display: inline-block
+      width: 20px
+      height: 20px
+      margin-right: 5px
+      cursor: pointer
+
+      &.active
+        &::before
+          content: "✖"
+          color: var(--bgcolor)
+          display: flex
+          justify-content: center
+          align-items: center
+
+    .themeName
+      display: inline-block
+      font-size: 0.8rem
+      font-weight: 400
+      letter-spacing: 0.2em
+      cursor: pointer
+      padding: 0.2em
+      text-transform: lowercase
+
 // #project-list
 //   display: flex
 //   width: 250px
@@ -237,8 +282,8 @@ img
   transition: all 0.7s ease-in-out
 
   span
-    color: $bgcolor
-    background-color: $neutralcolor
+    color: var(--bgcolor)
+    background-color: var(--neutralcolor)
     font-size: 0.8rem
     font-weight: 400
     letter-spacing: 0.2em
@@ -251,9 +296,9 @@ img
   &.activeItem
 
     span
-      border: 1px solid $neutralcolor
-      color: $neutralcolor
-      background-color: $bgcolor
+      border: 1px solid var(--neutralcolor)
+      color: var(--neutralcolor)
+      background-color: var(--bgcolor)
 
 #footer
   display: block
@@ -262,7 +307,7 @@ img
   bottom: 0px
   left: 0px
   width: 100%
-  background-color: $bgcolor
+  background-color: var(--bgcolor)
 
 #backtolist
   position: absolute
@@ -276,8 +321,8 @@ img
   cursor: pointer
 
   &>*
-    background-color: $neutralcolor
-    color: $bgcolor
+    background-color: var(--neutralcolor)
+    color: var(--bgcolor)
     padding: 5px 10px
     border-radius: 10px
     display: flex
@@ -314,7 +359,7 @@ img
       pointer-events: all
       font-size: 1.4em
       text-decoration: none
-      color: $lightcolor
+      color: var(--lightcolor)
 
   &.mainscreen .s_item
     @extend %wave-animation
@@ -333,7 +378,7 @@ img
   width: 100%
   height: 100%
   z-index: 10000
-  background-color: $bgcolor
+  background-color: var(--bgcolor)
   pointer-events: none
 
 .aboutIntro
@@ -344,8 +389,8 @@ img
 
     a
       text-decoration: none
-      color: $neutralcolor
-      border: 1px solid $neutralcolor
+      color: var(--neutralcolor)
+      border: 1px solid var(--neutralcolor)
       border-radius: 1em
       padding: 0em 0.8em
 
@@ -400,8 +445,8 @@ img
         span
 
           a
-            color: $neutralcolor
-            border: 1px solid $neutralcolor
+            color: var(--neutralcolor)
+            border: 1px solid var(--neutralcolor)
             padding: 0.2em 1em
             border-radius: 1em
             text-decoration: none
@@ -436,8 +481,8 @@ img
           margin-right: 1em
 
         a
-          color: $neutralcolor
-          border: 1px solid $neutralcolor
+          color: var(--neutralcolor)
+          border: 1px solid var(--neutralcolor)
           padding: 0.2em 1em
           border-radius: 1em
           text-decoration: none
@@ -445,7 +490,8 @@ img
 
         .noLink
           font-style: italic
-          color: transparentize($lightcolor, 0.6)
+          color: var(--lightcolor)
+          opacity: 0.6
           font-size: 0.8em
           padding-left: 1em
 
@@ -470,7 +516,7 @@ img
         img
           width: 100%
           height: auto
-          // background-color: $neutralcolor
+          // background-color: var(--neutralcolor)
 
     .contactWrap
       display: block
@@ -484,7 +530,7 @@ img
         @extend %wave-animation
 
         h2
-          color: $lightcolor
+          color: var(--lightcolor)
           font-weight: 600
           margin: 1em 0em
           font-size: 1.7em
@@ -493,19 +539,19 @@ img
 
           a
             text-decoration: none
-            color: $neutralcolor
-            border: 1px solid $neutralcolor
+            color: var(--neutralcolor)
+            border: 1px solid var(--neutralcolor)
             border-radius: 1em
             padding: 0.2em 1em
 
     .toolTitle
-      color: $bgcolor
+      color: var(--bgcolor)
       font-size: 2em
       font-weight: 600
       letter-spacing: 0.1em
       margin: 2rem 0rem
       span
-        background-color: $neutralcolor
+        background-color: var(--neutralcolor)
         padding: 0.1em 0.5em
         svg
           padding-left: 0.3em
@@ -526,7 +572,7 @@ img
             max-width: 100%
 
         .toolIconGroup
-          border: 4px double transparentize($neutralcolor, 0.6)
+          border: 4px double var(--neutralcolor)
           margin-right: 1rem
           min-height: 8rem
           box-sizing: border-box
@@ -537,7 +583,7 @@ img
             margin-right: 0rem
 
           i
-            color: $neutralcolor
+            color: var(--neutralcolor)
             padding: 0rem 1rem
             font-size: 5em
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="--bgcolor:#202d31;--lightcolor:#c6dec0;--darkcolor:#63a088;--neutralcolor:#8acd94;">
 <head>
   <title>Kyle Yount Front-End Web Development and Design</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,6 +36,22 @@
             :style="'transition-delay:' +  (0.05 * index) + 's; animation-delay: ' + (-0.5 * index) + 's'"
             :class="{activeItem: activeProject == index}">
           <span>{{project.title}}</span>
+        </div>
+        <div class="listItem"
+            @click="toggleThemeMenu()"
+            style="transition-delay: 0.2s; animation-delay: -2s"
+            :class="{activeItem: themeMenuActive}">
+          <span>THEME</span>
+          <div id="themeMenu" v-show="themeMenuActive">
+            <div
+            v-for="(theme, index) in colorList"
+            class="themeWrap"
+            @click="changeTheme(index)"
+            :style="'background-color:' + colorList[index].bg + ';'">
+              <div :class="{themeBlock: true, active: activeTheme == index}" :style="'background-color:' + colorList[index].neutral + ';'"></div>
+              <div class="themeName" :style="'color:' + colorList[index].neutral + ';'">{{colorList[index].name}}</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

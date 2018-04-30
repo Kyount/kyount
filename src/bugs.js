@@ -1,5 +1,15 @@
 // create a canvas element
 var canvas = document.createElement("canvas");
+var c = getComputedStyle(document.getElementsByTagName('html')[0], '').getPropertyValue('--neutralcolor');
+
+var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutationRecord) {
+        c = getComputedStyle(document.getElementsByTagName('html')[0], '').getPropertyValue('--neutralcolor');
+    });
+});
+
+var target = document.getElementsByTagName('html')[0];
+observer.observe(target, { attributes : true, attributeFilter : ['style'] });
 
 // attach element to DOM
 document.getElementById("canvashook").appendChild(canvas);
@@ -58,6 +68,15 @@ function randomRange(max, min) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
+
 function Bug(x, y) {
   this.globalSpeed = 0.3;
 
@@ -90,7 +109,7 @@ function Bug(x, y) {
   this.draw = function() {
     ctx.beginPath();
     ctx.rect(this.x, this.y, this.size, this.size);
-    ctx.fillStyle = "rgba(138,205,148," + this.opacity + ")";
+    ctx.fillStyle = 'rgba(' + hexToRgb(c).r + ',' + hexToRgb(c).g + ',' + hexToRgb(c).b + ',' + this.opacity + ')';
     // ctx.fillStyle = "rgba(246,246,246," + this.opacity + ")";
     ctx.fill();
     if (!this.isAlive) {
